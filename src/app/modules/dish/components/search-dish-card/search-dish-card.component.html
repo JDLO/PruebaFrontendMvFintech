@@ -1,0 +1,59 @@
+<div  *ngIf="isCart; then thenBlock else elseBlock"></div>
+<ng-template #elseBlock>
+  <ion-card [button]="dish.available">
+    <img [src]="dish.img"/>
+    <ion-fab horizontal="end" >
+      <ion-fab-button color="warning" size="small" (click)="add(dish)">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-card-title>{{dish.name}}</ion-card-title>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-card-content>
+            {{dish.description}}
+          </ion-card-content>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-card-title id="price">{{dish.price}}</ion-card-title>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ng-template>
+<ng-template #thenBlock>
+  <ion-card [button]="dish.available">
+    <img [src]="dish.img"/>
+    <ion-fab horizontal="end" >
+      <ion-fab-button color="danger" size="small" (click)="remove(dish)">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-card-title>{{dish.name}}</ion-card-title>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-card-content>
+            {{dish.description}}
+          </ion-card-content>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-card-title id="price">{{dish.price}}</ion-card-title>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ng-template>

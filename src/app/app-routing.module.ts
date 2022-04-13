@@ -8,8 +8,24 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'search-dish',
     pathMatch: 'full'
+  },
+  {
+    path: 'search-dish',
+    loadChildren: () => import('./modules/dish/pages/search-dish/search-dish.module').then( m => m.SearchDishPageModule)
+  },
+  {
+    path: 'dish-view',
+    loadChildren: () => import('./modules/dish/pages/dish-view/dish-view.module').then( m => m.DishViewPageModule)
+  },
+  {
+    path: 'filter-dish',
+    loadChildren: () => import('./modules/dish/pages/filter-dish/filter-dish.module').then( m => m.FilterDishPageModule)
+  },
+  {
+    path: 'cart-dish',
+    loadChildren: () => import('./modules/dish/pages/cart-dish/cart-dish.module').then( m => m.CartDishPageModule)
   },
 ];
 

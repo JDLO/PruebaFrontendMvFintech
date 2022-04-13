@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" color="light" (click)="closeModal()">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title>Carrito</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let dish of dishes">
+      <app-search-dish-card [dish]="dish" 
+                            [isCart]="true"
+                            (click)="remove(dish)"></app-search-dish-card>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title> Total: {{total}} </ion-title>
+  </ion-toolbar>
+</ion-footer>

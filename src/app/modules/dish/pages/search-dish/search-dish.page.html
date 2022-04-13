@@ -1,0 +1,35 @@
+<ion-header color="ligth">
+  <ion-toolbar>
+    <ion-title slot="start">Menú</ion-title>
+    <ion-button id="cart" slot="end" color="warning" (click)="cartModal()">
+      <ion-icon name="cart-outline"></ion-icon>
+      {{total}}
+    </ion-button>
+  </ion-toolbar>
+  <ion-searchbar  animated
+                (ionChange)="search($event)"
+                color="light"
+                class="button">
+  </ion-searchbar>
+  <ion-button class="button" (click)="filterModal()" expand="block" color="light">
+    <ion-icon name="funnel-outline"></ion-icon>
+    ..Filtrar
+  </ion-button>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="
+                  let dish of dishes | 
+                  searchDishes: searchText: 'name' |
+                  filterDish: filterDishes: 'price'" 
+            col-12 col-xl-2 col-lg-3 col-md-4>
+        <app-search-dish-card class="card" 
+                              [dish]="dish"
+                              [isCart]="false"
+                              (click)="addDish(dish)"></app-search-dish-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
